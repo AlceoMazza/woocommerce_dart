@@ -192,4 +192,19 @@ class WooCommerceAPI {
     var dataResponse = await json.decode(response);
     return dataResponse;
   }
+
+  Future<dynamic> putAsync(String endPoint, Map data) async {
+    String url = this._getOAuthURL("PUT", endPoint);
+
+    http.Client client = http.Client();
+    http.Request request = http.Request('PUT', Uri.parse(url));
+    request.headers[HttpHeaders.contentTypeHeader] =
+        'application/json; charset=utf-8';
+    request.headers[HttpHeaders.cacheControlHeader] = "no-cache";
+    request.body = json.encode(data);
+    String response =
+        await client.send(request).then((res) => res.stream.bytesToString());
+    var dataResponse = await json.decode(response);
+    return dataResponse;
+  }
 }

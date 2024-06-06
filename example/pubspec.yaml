@@ -1,0 +1,15 @@
+name: woocommerce_api_example
+version: 0.0.10
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  woocommerce_api:
+    path: ..
+
+flutter:
+  uses-material-design: true
+
+environment:
+  sdk: ">=2.6.0 <2.12.0"
